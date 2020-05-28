@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;0,900;1,600&display=swap");
+@font-face {
+  font-family: 'digital-clock-font';
+  src: url("/fonts/digital-7.ttf");
+}
+
+body, html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: black;
+}
+
+.App {
+  width: fit-content;
+  height: fit-content;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #e6e7ee;
+}
+
+.calculator {
+  margin-top: 20px;
+  display: grid;
+  grid-template-rows: 80px 80px repeat(5, 70px);
+  grid-template-columns: repeat(4, 70px);
+  column-gap: 10px;
+  row-gap: 10px;
+  width: fit-content;
+  justify-items: stretch;
+  grid-template-areas: "Display Display Display Display" "Display Display Display Display" "AC CE percentage divide" "seven eight nine multiply" "four five six minus" "one two three plus" "zero dot equals plus";
+  text-align: center;
+}
+
+.calculator #plus-button {
+  grid-area: plus;
+}
+
+.calculator #display {
+  grid-area: Display;
+  font-family: "digital-clock-font";
+  font-size: 2.5rem;
+  text-align: right;
+  align-items: flex-end;
+  font-weight: 400;
+  vertical-align: bottom;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  box-shadow: inset 0.5px 0.5px 1.25px #b8b9be, inset -0.5px -0.5px 1.25px #fff !important;
+  border: 1px solid #e6e7ee;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.02), rgba(255, 255, 255, 0.1));
+  background-color: #e6e7ee;
+  cursor: default;
+}
+
+.calculator .calc-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: "Nunito Sans", sans-serif;
+  color: #31344b;
+  color: #777880;
+  background-color: #e6e7ee;
+  transition: all .2s ease;
+  letter-spacing: .025em;
+  font-size: 20px;
+  border: 1px solid #dddee775;
+  box-shadow: 1px 1px 2.5px #b8b9be, -1px -1px 2.5px #fff;
+  font-weight: 600;
+  vertical-align: middle;
+  padding: .55rem .95rem;
+  line-height: 1.5;
+  border-radius: .55rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.calculator .calc-button:active {
+  box-shadow: inset 1px 1px 2.5px #b8b9be, inset -1px -1px 2.5px #fff;
+  font-size: 19px;
+}
+
+.calculator .calc-button:not(#display) {
+  background: linear-gradient(-45deg, rgba(0, 0, 0, 0.02), rgba(255, 255, 255, 0.02));
+}
+
+#setting-indicator {
+  line-height: 1;
+  font-size: 1.75rem;
+}
+
+#result {
+  line-height: 1;
+}
+
+.calculator #display {
+  justify-content: space-between;
+}
+/*# sourceMappingURL=styles.css.map */
