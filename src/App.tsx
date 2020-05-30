@@ -1,36 +1,61 @@
-import React from 'react';
+import React, { MouseEvent, useState } from 'react';
 import './style/styles.css';
+import { Display } from './components/Display'
 
-function App() {
+
+
+export default function App(): JSX.Element {
+
+  const [chain, updateChain] = useState<String[]>([])
+  const [result, setResult] = useState<String>('')
+
+  const handleClick = (e: MouseEvent) => {
+    const target = e.currentTarget as HTMLButtonElement;
+    const value: string | undefined = target.dataset.value
+    const lastEl: String = chain[chain.length - 1]
+
+    if(value !== undefined) {
+
+      if(value === 'ac') {
+        updateChain([])
+        return
+      } else if(value === 'ce') {
+        chain.length > 0 && updateChain([...chain.pop()])
+        return
+      }
+
+      if(value === '+' || value === '-' || value === '/' || value === '*' || value === '%') {
+        if(lastEl === '+' || lastEl === '-' || lastEl === '/' || lastEl === '*' || lastEl === '%') {
+          const addUpChain = [...[...chain].pop(), value]
+          updateChain(addUpChain)
+          return
+        } else {
+          const addUpChain: String[] = [...chain, value]
+          updateChain(addUpChain)
+        }
+      }
+    }
+  }
+  console.log(chain)
   return (
     <div className="App">
       <div className="calculator">
-        <div className="calc-button" id="display">
-          <div id="setting-indicator">- 10</div>
-          <div id="result">123456</div>
-        </div>
-        <div className="calc-button" id="ac-button">AC</div>
-        <div className="calc-button" id="ce-button">CE</div>
-        <div className="calc-button" id="percentage-button">%</div>
-        <div className="calc-button" id="divide-button">/</div>
-        <div className="calc-button" id="seven-button">7</div>
-        <div className="calc-button" id="eight-button">8</div>
-        <div className="calc-button" id="nine-button">9</div>
-        <div className="calc-button" id="multiply-button">*</div>
-        <div className="calc-button" id="four-button">4</div>
-        <div className="calc-button" id="five-button">5</div>
-        <div className="calc-button" id="six-button">6</div>
-        <div className="calc-button" id="minus-button">-</div>
-        <div className="calc-button" id="one-button">1</div>
-        <div className="calc-button" id="two-button">2</div>
-        <div className="calc-button" id="three-button">3</div>
-        <div className="calc-button" id="plus-button">+</div>
-        <div className="calc-button" id="zero-button">0</div>
-        <div className="calc-button" id="dot-button">.</div>
-        <div className="calc-button" id="equals-button">=</div>
+        <Display />
+        <div onClick={handleClick} className="calc-button" id="ac-button" data-value="ac">AC</div>
+        <div onClick={handleClick} className="calc-button" id="ce-button" data-value="ce">CE</div>
+        <div onClick={handleClick} className="calc-button" id="percentage-button" data-value="%">%</div>
+        <div onClick={handleClick} className="calc-button" id="divide-button" data-value="/">/</div>
+        <div onClick={handleClick} className="calc-button" id="multiply-button" data-value="*">*</div>
+        <div onClick={handleClick} className="calc-button" id="minus-button" data-value="-">-</div>
+        <div onClick={handleClick} className="calc-button" id="plus-button" data-value="+">+</div>
+        <div onClick={handleClick} className="calc-button" id="dot-button" data-value=".">.</div>
+        <div onClick={handleClick} className="calc-button" id="equals-button" data-value="=">=</div>
+        {
+          [...Array(10).keys()].map(number => {
+            return <div key={`calc-button-${number}`} onClick={handleClick} className="calc-button" data-value={number}>{number}</div>
+          })
+        }
       </div>
     </div>
   );
 }
-
-export default App;

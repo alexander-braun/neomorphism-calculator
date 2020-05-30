@@ -39,13 +39,13 @@ body, html {
     width: fit-content;
     justify-items: stretch;
     grid-template-areas: 
-        "Display Display Display Display"
-        "Display Display Display Display"
+        "Disp Disp Disp Disp"
+        "Disp Disp Disp Disp"
         "AC CE percentage divide"
-        "seven eight nine multiply"
+        "seven eight nine multiplication"
         "four five six minus"
         "one two three plus"
-        "zero dot equals plus";
+        "zero dot-b equals plus";
     text-align: center;
 
     #plus-button {
@@ -53,7 +53,7 @@ body, html {
     }
 
     #display {
-        grid-area: Display;
+        grid-area: Disp;
         font-family: "digital-clock-font";
         font-size: 2.5rem;
         text-align: right;
@@ -67,6 +67,38 @@ body, html {
         background: linear-gradient(0deg, rgba(0,0,0,0.02), rgba(255,255,255,.1));
         background-color: #e6e7ee;
         cursor: default;
+    }
+
+    #ce-button {
+        grid-area: CE;
+    }
+
+    #percentage-button {
+        grid-area: percentage;
+    }
+
+    #divide-button {
+        grid-area: divide;
+    }
+
+    #multiply-button {
+        grid-area: multiplication;
+    }
+
+    #minus-button {
+        grid-area: minus;
+    }
+
+    #plus-button {
+        grid-area: plus;
+    }
+
+    #dot-button {
+        grid-area: dot-b;
+    }
+
+    #equals-button {
+        grid-area: equals;
     }
 
     .calc-button {
