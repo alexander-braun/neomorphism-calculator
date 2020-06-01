@@ -2,14 +2,10 @@ import React, { MouseEvent, useState } from 'react';
 import './style/styles.css';
 import { Display } from './components/Display'
 
-
-
 export default function App(): JSX.Element {
 
   const [chain, updateChain] = useState<String[]>([])
-  const [currentOperator, setCurrentOperator] = useState<String>()
   const [result, setResult] = useState<Number>(0)
-  const [role, setRole] = useState<String>()
 
   const handleClick = (e: MouseEvent) => {
     const target = e.currentTarget as HTMLButtonElement;
@@ -54,11 +50,30 @@ export default function App(): JSX.Element {
       // Case: Equals
       // Calculate and update result, reset chain
       if(role === 'result') {
-        // eslint-disable-next-line no-eval
-        const tempResult: Number = chain.length !== 0 ? eval(chain.join('')) : 0
-        setResult(tempResult)
-        updateChain([tempResult.toString()])
-        return
+
+        // Test if percentage sign
+        let hasPercent: Boolean = false
+        for(let i = 0; i < chain.length; i++) {
+          chain[i] === '%' && (hasPercent = true)
+        }
+
+        // Case: There is a percentage sign in the chain
+        if(hasPercent) {
+          let tempResult: Number = result
+          for(let i = 0; i < chain.length; i++) {
+            // Case: Chainelement is not a number
+            if(isNaN(+chain[i])) {
+              console.log(chain[i])
+            }
+          }
+
+        } else {
+          // eslint-disable-next-line no-eval
+          const tempResult: Number = chain.length !== 0 ? eval(chain.join('')) : 0
+          setResult(tempResult)
+          updateChain([tempResult.toString()])
+          return
+        }
       }
 
       // Case: Dot
@@ -68,7 +83,7 @@ export default function App(): JSX.Element {
       }
     }
   }
-  console.log(chain, result)
+
   return (
     <div className="App">
       <div className="calculator">
