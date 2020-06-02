@@ -40,13 +40,13 @@ body, html {
 .calculator {
   margin-top: 20px;
   display: grid;
-  grid-template-rows: 80px 80px repeat(5, 70px);
+  grid-template-rows: minmax(80px, auto) minmax(80px, auto) repeat(5, 70px);
   grid-template-columns: repeat(4, 70px);
   column-gap: 10px;
   row-gap: 10px;
   width: fit-content;
   justify-items: stretch;
-  grid-template-areas: "Disp Disp Disp Disp" "Disp Disp Disp Disp" "AC CE percentage divide" "seven eight nine multiplication" "four five six minus" "one two three plus" "zero dot-b equals plus";
+  grid-template-areas: "Disp Disp Disp Disp" "Disp Disp Disp Disp" "AC AC CE divide" "seven eight nine multiplication" "four five six minus" "one two three plus" "zero dot-b equals plus";
   text-align: center;
 }
 
@@ -71,6 +71,10 @@ body, html {
 
 .calculator #ce-button {
   grid-area: CE;
+}
+
+.calculator #ac-button {
+  grid-area: AC;
 }
 
 .calculator #percentage-button {
@@ -135,10 +139,12 @@ body, html {
 #setting-indicator {
   line-height: 1;
   font-size: 1.75rem;
+  word-break: break-all;
 }
 
 #result {
   line-height: 1;
+  word-break: break-all;
 }
 
 .calculator #display {
