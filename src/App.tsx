@@ -1,6 +1,7 @@
 import React, { MouseEvent, useState } from 'react';
 import './style/styles.css';
 import { Display } from './components/Display'
+const { evaluate, format } = require('mathjs')
 
 export default function App(): JSX.Element {
 
@@ -51,7 +52,7 @@ export default function App(): JSX.Element {
       // Calculate and update result, reset chain
       if(role === 'result') {
         // eslint-disable-next-line no-eval
-        const tempResult: number = chain.length !== 0 ? eval(chain.join('')) : 0
+        const tempResult: number = chain.length !== 0 ? format(evaluate(chain.join('')), {precision: 14}) : 0
         setResult(tempResult)
         updateChain([tempResult.toString()])
         return
