@@ -8,23 +8,28 @@ export default function App(): JSX.Element {
   const [chain, updateChain] = useState<string[]>([])
   const [result, setResult] = useState<number>(0)
 
-  const handleClick = (e: MouseEvent) => {
+  const handleClick = (e: MouseEvent):void => {
     const target = e.currentTarget as HTMLButtonElement;
     const value: string | undefined = target.dataset.value
     const role: string | undefined = target.dataset.role
     const lastEl: string = chain[chain.length - 1]
 
     if(value !== undefined) {
-      // Case: AC
-      // Delete the chain and set back the result
+
+      /**
+       * Case: AC
+       * Delete the chain and set back the result
+       */
       if(value === 'ac') {
         updateChain([])
         setResult(0)
         return
       }
 
-      // Case: CE
-      // Delete last element in chain
+      /**
+       * Case: CE
+       * Delete last element in chain
+       */
       if(value === 'ce') {
         let chainCopy: string[] = [...chain]
         chainCopy.pop()
@@ -32,12 +37,16 @@ export default function App(): JSX.Element {
         return
       }
 
-      // Case: Number or operator
-      // Add number/operator to chain 
+      /**
+       * Case: Number or operator
+       * Add number/operator to chain 
+       */
       if(role === 'number' || role === 'operator') {
 
-        // Case: last Element was already an operator
-        // Remove last Element and add new value
+        /**
+         * Case: last Element was already an operator
+         * Remove last Element and add new value
+         */
         if(role === 'operator' && (lastEl === '-' || lastEl === '+' || lastEl === '*' || lastEl === '/')) {
           const tempChain: string[] = [...chain]
           tempChain.pop()
@@ -47,19 +56,26 @@ export default function App(): JSX.Element {
         updateChain([...chain, value])
         return
       }
-      
-      // Case: Equals
-      // Calculate and update result, reset chain
+
+      /**
+       * Case: Equals
+       * Calculate and update result, reset chain
+       */
       if(role === 'result') {
-        // eslint-disable-next-line no-eval
+
+        /**
+         * eslint-disable-next-line no-eval
+         */
         const tempResult: number = chain.length !== 0 ? format(evaluate(chain.join('')), {precision: 14}) : 0
         setResult(tempResult)
         updateChain([tempResult.toString()])
         return
       }
 
-      // Case: Dot
-      // Add dot to chain
+      /**
+       * Case: Dot
+       * Add dot to chain
+       */
       if(role === 'dot') {
         updateChain([...chain, value])
       }
