@@ -7,13 +7,13 @@ interface FooProp {
 
 export const Display = (props: FooProp) => {
   return (
-    <div className="calc-button" id="display">
-        <div id="setting-indicator">
+    <div className="display">
+        <div className="display__setting-indicator">
           {
             [...props.chain].join('')
           }
         </div>
-        <div id="result">{props.result}</div>
+        <div className="display__result">{props.result}</div>
     </div>
   );
 }

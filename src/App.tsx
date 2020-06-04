@@ -83,20 +83,20 @@ export default function App(): JSX.Element {
   }
 
   return (
-    <div className="App">
+    <div className="app">
       <div className="calculator">
         <Display result={result} chain={chain} />
-        <div onClick={handleClick} className="calc-button" id="ac-button" data-role="delete" data-value="ac">AC</div>
-        <div onClick={handleClick} className="calc-button" id="ce-button" data-role="delete" data-value="ce">CE</div>
-        <div onClick={handleClick} className="calc-button" id="divide-button" data-role="operator" data-value="/">/</div>
-        <div onClick={handleClick} className="calc-button" id="multiply-button" data-role="operator" data-value="*">*</div>
-        <div onClick={handleClick} className="calc-button" id="minus-button" data-role="operator" data-value="-">-</div>
-        <div onClick={handleClick} className="calc-button" id="plus-button" data-role="operator" data-value="+">+</div>
-        <div onClick={handleClick} className="calc-button" id="dot-button" data-role="dot" data-value=".">.</div>
-        <div onClick={handleClick} className="calc-button" id="equals-button" data-role="result" data-value="=">=</div>
+        <div onClick={handleClick} className="calculator__calc-button calculator__calc-button--ac-button" data-role="delete" data-value="ac">AC</div>
+        <div onClick={handleClick} className="calculator__calc-button calculator__calc-button--ce-button" data-role="delete" data-value="ce">CE</div>
+        <div onClick={handleClick} className="calculator__calc-button calculator__calc-button--divide-button" data-role="operator" data-value="/">/</div>
+        <div onClick={handleClick} className="calculator__calc-button calculator__calc-button--multiply-button" data-role="operator" data-value="*">*</div>
+        <div onClick={handleClick} className="calculator__calc-button calculator__calc-button--minus-button" data-role="operator" data-value="-">-</div>
+        <div onClick={handleClick} className="calculator__calc-button calculator__calc-button--plus-button" data-role="operator" data-value="+">+</div>
+        <div onClick={handleClick} className="calculator__calc-button calculator__calc-button--dot-button" data-role="dot" data-value=".">.</div>
+        <div onClick={handleClick} className="calculator__calc-button calculator__calc-button--equals-button" data-role="result" data-value="=">=</div>
         {
           [...Array(10).keys()].map(number => {
-            return <div key={`calc-button-${number}`} onClick={handleClick} className="calc-button" data-role="number" data-value={number}>{number}</div>
+            return <div key={`calc-button-${number}`} onClick={handleClick} className="calculator__calc-button" data-role="number" data-value={number}>{number}</div>
           })
         }
       </div>

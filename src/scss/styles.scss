@@ -4,6 +4,12 @@
     src: url('/fonts/digital-7.ttf');
 }
 
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
 body, html {
     overflow-x: hidden;
     overflow-y: hidden;
@@ -22,7 +28,7 @@ body, html {
 
 
 
-.App {
+.app {
     width: fit-content;
     height: fit-content;
     padding: 30px;
@@ -35,7 +41,7 @@ body, html {
         background-color: #e6e7ee;
     }
 
-    .App {
+    .app {
         box-shadow: 12px 12px 24px #b8b9be,-12px -12px 24px #fff!important;
     }
 }
@@ -59,11 +65,7 @@ body, html {
         "zero dot-b equals plus";
     text-align: center;
 
-    #plus-button {
-        grid-area: plus;
-    }
-
-    #display {
+    .display {
         grid-area: Disp;
         font-family: "digital-clock-font";
         font-size: 2.5rem;
@@ -76,45 +78,42 @@ body, html {
         box-shadow: inset .5px .5px 1.25px #b8b9be,inset -.5px -.5px 1.25px #fff!important;
         border: 1px solid #e6e7ee;
         cursor: default;
+        justify-content: space-between;
     }
 
-    #ce-button {
+    .calculator__calc-button--ce-button {
         grid-area: CE;
     }
 
-    #ac-button {
+    .calculator__calc-button--ac-button {
         grid-area: AC;
     }
 
-    #percentage-button {
-        grid-area: percentage;
-    }
-
-    #divide-button {
+    .calculator__calc-button--divide-button {
         grid-area: divide;
     }
 
-    #multiply-button {
+    .calculator__calc-button--multiply-button {
         grid-area: multiplication;
     }
 
-    #minus-button {
+    .calculator__calc-button--minus-button {
         grid-area: minus;
     }
 
-    #plus-button {
+    .calculator__calc-button--plus-button {
         grid-area: plus;
     }
 
-    #dot-button {
+    .calculator__calc-button--dot-button {
         grid-area: dot-b;
     }
 
-    #equals-button {
+    .calculator__calc-button--equals-button {
         grid-area: equals;
     }
 
-    .calc-button {
+    .calculator__calc-button {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -144,24 +143,36 @@ body, html {
         }
     }
 
-    .calc-button:not(#display) {
+    .display {
+        display: flex;
+        flex-direction: column;
+        color: #777880;
+        background-color: #e6e7ee;
+        letter-spacing: .025em;
+        padding: .55rem .95rem;
+        line-height: 1.5;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+        &:active {
+            box-shadow: inset 1px 1px 2.5px #b8b9be, inset -1px -1px 2.5px #fff;
+            font-size: 19px;
+        }
+    }
+
+    .calculator__calc-button:not(.display) {
         background: linear-gradient(-45deg, rgba(0,0,0,0.02), rgba(255,255,255,0.02))
     }
 
 }
 
-#setting-indicator {
+.display__setting-indicator {
     line-height: 1;
     font-size: 1.75rem;
     word-break: break-all;
 }
 
-#result {
+.display__result {
     line-height: 1;
     word-break: break-all;
-}
-
-.calculator #display {
-    justify-content: space-between;
 }
 
