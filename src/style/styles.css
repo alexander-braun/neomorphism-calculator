@@ -10,10 +10,16 @@
   box-sizing: inherit;
 }
 
-body, html {
+html {
+  font-size: 55%;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
   overflow-x: hidden;
   overflow-y: hidden;
   margin: 0;
+  box-sizing: border-box;
 }
 
 #root {
@@ -41,6 +47,9 @@ body, html {
   .app {
     box-shadow: 12px 12px 24px #b8b9be, -12px -12px 24px #fff !important;
   }
+  html {
+    font-size: 62.5%;
+  }
 }
 
 .calculator {
@@ -60,16 +69,26 @@ body, html {
   grid-area: Disp;
   font-family: "digital-clock-font";
   font-size: 2.5rem;
-  text-align: right;
-  align-items: flex-end;
   font-weight: 400;
-  vertical-align: bottom;
+  text-align: right;
   margin-bottom: 15px;
   border-radius: 3px;
-  box-shadow: inset 0.5px 0.5px 1.25px #b8b9be, inset -0.5px -0.5px 1.25px #fff !important;
   border: 1px solid #e6e7ee;
+  box-shadow: inset 0.5px 0.5px 1.25px #b8b9be, inset -0.5px -0.5px 1.25px #fff !important;
   cursor: default;
+  display: flex;
+  align-items: flex-end;
   justify-content: space-between;
+  flex-direction: column;
+  color: #777880;
+  background-color: #e6e7ee;
+  letter-spacing: .025em;
+  padding: .55rem .95rem;
+}
+
+.calculator .display:active {
+  box-shadow: inset 1px 1px 2.5px #b8b9be, inset -1px -1px 2.5px #fff;
+  font-size: 1.9rem;
 }
 
 .calculator .calculator__calc-button--ce-button {
@@ -110,12 +129,11 @@ body, html {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-family: "Nunito Sans", sans-serif;
   color: #777880;
   background-color: #e6e7ee;
   transition: all .2s ease;
   letter-spacing: .025em;
-  font-size: 20px;
+  font-size: 2rem;
   border: 1px solid #dddee775;
   box-shadow: 1.5px 1.5px 3px #b8b9beb9, -1.5px -1.5px 3px rgba(255, 255, 255, 0.726);
   font-weight: 600;
@@ -128,23 +146,7 @@ body, html {
 
 .calculator .calculator__calc-button:active {
   box-shadow: inset 1px 1px 2.5px #b8b9be, inset -1px -1px 2.5px #fff;
-  font-size: 19px;
-}
-
-.calculator .display {
-  display: flex;
-  flex-direction: column;
-  color: #777880;
-  background-color: #e6e7ee;
-  letter-spacing: .025em;
-  padding: .55rem .95rem;
-  line-height: 1.5;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
-.calculator .display:active {
-  box-shadow: inset 1px 1px 2.5px #b8b9be, inset -1px -1px 2.5px #fff;
-  font-size: 19px;
+  font-size: 1.9rem;
 }
 
 .calculator .calculator__calc-button:not(.display) {
@@ -153,12 +155,13 @@ body, html {
 
 .display__setting-indicator {
   line-height: 1;
-  font-size: 1.75rem;
+  font-size: 2.25rem;
   word-break: break-all;
 }
 
 .display__result {
   line-height: 1;
   word-break: break-all;
+  font-size: 4rem;
 }
 /*# sourceMappingURL=styles.css.map */
