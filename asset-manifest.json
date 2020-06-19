@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/neomorphism-calculator/static/css/main.9d5b9af1.chunk.css",
+    "main.js": "/neomorphism-calculator/static/js/main.3ab1c424.chunk.js",
+    "main.js.map": "/neomorphism-calculator/static/js/main.3ab1c424.chunk.js.map",
+    "runtime-main.js": "/neomorphism-calculator/static/js/runtime-main.17ae10a1.js",
+    "runtime-main.js.map": "/neomorphism-calculator/static/js/runtime-main.17ae10a1.js.map",
+    "static/js/2.edacdc8e.chunk.js": "/neomorphism-calculator/static/js/2.edacdc8e.chunk.js",
+    "static/js/2.edacdc8e.chunk.js.map": "/neomorphism-calculator/static/js/2.edacdc8e.chunk.js.map",
+    "index.html": "/neomorphism-calculator/index.html",
+    "precache-manifest.17d15123b9b03c18a895dfec81d86648.js": "/neomorphism-calculator/precache-manifest.17d15123b9b03c18a895dfec81d86648.js",
+    "service-worker.js": "/neomorphism-calculator/service-worker.js",
+    "static/css/main.9d5b9af1.chunk.css.map": "/neomorphism-calculator/static/css/main.9d5b9af1.chunk.css.map",
+    "static/js/2.edacdc8e.chunk.js.LICENSE.txt": "/neomorphism-calculator/static/js/2.edacdc8e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.17ae10a1.js",
+    "static/js/2.edacdc8e.chunk.js",
+    "static/css/main.9d5b9af1.chunk.css",
+    "static/js/main.3ab1c424.chunk.js"
+  ]
+}
