@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/neomorphism-calculator/precache-manifest.17d15123b9b03c18a895dfec81d86648.js"
+  "/neomorphism-calculator/precache-manifest.22ceee4c0eb175a1401c36989c1cdbbd.js"
 );
 
 self.addEventListener('message', (event) => {
