@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8afe0e3a2c67e9deff56354104732c90",
+    "revision": "b51b9ae9bc96aa204d8000b1721b269b",
     "url": "/neomorphism-calculator/index.html"
   },
   {
-    "revision": "989fcbecf46b27e2460d",
-    "url": "/neomorphism-calculator/static/css/main.9d5b9af1.chunk.css"
+    "revision": "6a333c5cd227fa26daee",
+    "url": "/neomorphism-calculator/static/css/main.df0c3717.chunk.css"
   },
   {
     "revision": "7b2279f30732cbdb5ebe",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/neomorphism-calculator/static/js/2.2ad1fb50.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "989fcbecf46b27e2460d",
+    "revision": "6a333c5cd227fa26daee",
     "url": "/neomorphism-calculator/static/js/main.8c33bdfb.chunk.js"
   },
   {
